@@ -1,6 +1,7 @@
 #1. Import the NUMPY package under the name np.
 
 from re import X
+from tkinter import W
 import numpy as np
 
 #2. Print the NUMPY version and the configuration.
@@ -77,7 +78,7 @@ d_min= np.amin(d)
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
-print('Current block')
+
 f= np.empty([2, 3, 5], float)
 
 
@@ -172,3 +173,24 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+w= np.empty([2, 3, 5], str)
+
+for i,j in enumerate(d):
+    
+    for k,l in enumerate(j):
+        
+        for m,n in enumerate(l):                      
+
+                if n>d_min and n<d_mean: w[i][k][m] = 'b'
+
+                elif n>d_mean and n<d_max: w[i][k][m] = 'd'
+
+                elif n==d_mean: w[i][k][m] = 'c'
+
+                elif n==d_min: w[i][k][m] = 'a'
+
+                elif n==d_max: w[i][k][m] = 'e'
+
+                else: f[i][k][m] = None
+
+print(w)
